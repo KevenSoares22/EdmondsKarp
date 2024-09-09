@@ -34,7 +34,7 @@ bool bfs(const vector<vector<int>>& capacity, vector<vector<int>>& flow, vector<
     return false;
 }
 
-// Função para encontrar o fluxo máximo usando o algoritmo de Edmonds-Karp
+
 int edmondsKarp(const vector<vector<int>>& capacity, int source, int sink) {
     int n = capacity.size();
     vector<vector<int>> flow(n, vector<int>(n, 0));
@@ -61,17 +61,21 @@ int edmondsKarp(const vector<vector<int>>& capacity, int source, int sink) {
 }
 
 int main() {
-    // Exemplo de rede de fluxo
+    // Definindo a rede de fluxo para o problema
     vector<vector<int>> capacity = {
-        {0, 10, 5, 0, 0},
-        {0, 0, 15, 10, 0},
-        {0, 0, 0, 10, 10},
-        {0, 0, 0, 0, 15},
-        {0, 0, 0, 0, 0}
+        {0, 10, 5, 0, 0, 0, 0, 0, 0}, 
+        {0, 0, 15, 10, 0, 0, 0, 0, 0},  
+        {0, 0, 0, 10, 10, 0, 0, 0, 0},  
+        {0, 0, 0, 0, 15, 10, 0, 0, 0}, 
+        {0, 0, 0, 0, 0, 10, 10, 0, 0}, 
+        {0, 0, 0, 0, 0, 0, 10, 5, 0},  
+        {0, 0, 0, 0, 0, 0, 0, 10, 10}, 
+        {0, 0, 0, 0, 0, 0, 0, 0, 15},  
+        {0, 0, 0, 0, 0, 0, 0, 0, 0} 
     };
 
-    int source = 0; 
-    int sink = 4;    
+    int source = 0;  // A é o nó 0
+    int sink = 8;    // I é o nó 8
 
     cout << "Fluxo máximo: " << edmondsKarp(capacity, source, sink);
 
